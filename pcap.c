@@ -118,8 +118,9 @@ int ret,total_amount=0,total_bytes=0;
     	time_t local_tv_sec;    
 	local_tv_sec = header->ts.tv_sec;
 	ltime = localtime(&local_tv_sec);
-	strftime(timestr, sizeof timestr, "%H:%M:%S", ltime);   
-	printf("    Time: %s.%.6d\n", timestr, (int)header->ts.tv_usec);
+	strftime(timestr, 80,"%c", ltime);   
+printf("   Time: %s\n",timestr);
+	//printf("    Time: %s.%.6d\n", timestr, (int)header->ts.tv_usec);
    	 printf("    Length: %d bytes\n", header->len);
     	printf("    Capture length: %d bytes\n", header->caplen);
         // Show Epoch Time
