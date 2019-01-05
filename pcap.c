@@ -138,9 +138,10 @@ printf("   Time: %s\n",timestr);
 
         printf("src port: %d dest port: %d \n", tcp->th_sport, tcp->th_dport);
         fprintf(fp,"src port: %d dest port: %d \n", tcp->th_sport, tcp->th_dport);
-
-        printf("src address: %s dest address: %s \n",  inet_ntoa(ip->ip_src),  inet_ntoa(ip->ip_dst));
-        fprintf(fp,"src address: %s dest address: %s \n",  inet_ntoa(ip->ip_src),  inet_ntoa(ip->ip_dst));
+char *srcname=strdup(inet_ntoa(ip->ip_src));
+char *dstname=strdup(inet_ntoa(ip->ip_dst));
+        printf("src address: %s dest address: %s \n",  srcname,  dstname);
+        fprintf(fp,"src address: %s dest address: %s \n",  srcname,  dstname);
 
         printf("seq number: %u ack number: %u \n", (unsigned int)tcp-> th_seq, (unsigned int)tcp->th_ack);
         fprintf(fp,"seq number: %u ack number: %u \n", (unsigned int)tcp-> th_seq, (unsigned int)tcp->th_ack);
